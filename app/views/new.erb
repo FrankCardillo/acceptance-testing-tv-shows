@@ -6,5 +6,20 @@
   </head>
   <body>
     <h1>Add Show Details</h1>
+    <p><%if !@error.nil?%><% @error.each do |error| %> <%=error%> <% end %><%end%></p>
+
+    <form action="/television_shows/post_new" method="post">
+      <label for="Title">Title</label>
+      <input type="text" name="Title">
+      <label for="Network">Network</label>
+      <input type="text" name="Network">
+      <label for="Starting Year">Starting Year</label>
+      <input type="text" name="Starting Year">
+      <label for="Genre">Genre</label>
+      <%= create_select("Genre", @genres) %>
+      <label for="Synopsis">Synopsis</label>
+      <input type="text" name="Synopsis">
+      <input type="submit" value="Add TV Show">
+    </form>
   </body>
 </html>

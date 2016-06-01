@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "spec_helper"
 
 describe TelevisionShow do
   let(:my_television_show) {TelevisionShow.new("title", "network", "2016", "mystery", "synopsis")}
@@ -37,17 +37,6 @@ describe TelevisionShow do
       end
       my_television_show.save('../model-test.csv')
       expect(TelevisionShow.all('../model-test.csv')[0].title).to eq(my_television_show.title)
-    end
-  end
-
-  describe "#check_genre" do
-    it "returns true if the genre argument provided is included in the GENRES constant" do
-      expect(my_television_show.check_genre).to eq(true)
-    end
-
-    it "returns false if the provided genre argument is not included in the GENRES constant" do
-      bad_genre = TelevisionShow.new("test", "test", "2016", "not included genre", "test")
-      expect(bad_genre.check_genre).to eq(false)
     end
   end
 

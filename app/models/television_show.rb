@@ -1,7 +1,7 @@
 require "csv"
 
 class TelevisionShow
-  GENRES = ["action", "mystery", "drama", "comedy", "fantasy"]
+  GENRES = ["Action", "Mystery", "Drama", "Comedy", "Fantasy"]
   attr_reader :title, :network, :starting_year, :genre, :synopsis, :errors
 
   def initialize(title, network, starting_year, genre, synopsis)
@@ -46,9 +46,4 @@ class TelevisionShow
     end
     all_shows
   end
-
-  def check_genre
-    GENRES.include?(@genre)
-  end
-
 end
